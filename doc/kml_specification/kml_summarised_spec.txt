@@ -1,0 +1,61 @@
+example
+----------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+	<Document>
+		<Placemark>
+		  <name>New York City</name>
+		  <description>New York City</description>
+		  <Point>
+		    <coordinates>-74.006393,40.714172,0</coordinates>
+		  </Point>
+		</Placemark>
+	</Document>
+</kml>
+
+MIME Type
+----------------------------------------------------------------------
+.kml application/vnd.google-earth.kml+xml
+.kmz application/vnd.google-earth.kmz
+
+KMZ
+----------------------------------------------------------------------
+KMZ file = zipped KML files with a .kmz extension
+must be legacy (ZIP 2.0) compression compatible (i.e. stored or deflate method)
+[otherwise the .kmz file might not uncompress in all geobrowsers]
+
+KMZ File Structure 
+- single root KML document (notionally "doc.kml"), located at the root directory level 
+- optionally any referenced overlays, images, icons, and COLLADA 3D models, including network-linked KML files, in respective subdirectories (e.g. images for overlay images).
+
+kml node structure
+----------------------------------------------------------------------
+
+kml
+	.Document
+		.name
+		.visibility = 1
+		.open = 1
+		.Snippet
+		.Style, id="gv_track"
+			.LineStyle
+				.color
+				.width
+
+		.Folder, id="Tracks"
+			.name
+			.visibility = 1
+			.open = 1
+			.Placemark
+				.name
+				.Snippet
+					.description
+					.styleUrl = #gv_track
+					.Style
+						.LineStyle
+							.color
+							.width
+				.MultiGeometry
+					.LineString
+						.coordinates

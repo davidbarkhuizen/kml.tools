@@ -1,0 +1,30 @@
+.xml
+	.gpx
+		.metadata
+			.link
+			.text
+			.time
+		.trk
+			.name
+			.extensions
+				...
+			.trkseg
+				.trkpt: lat, lon
+					.ele
+					.time
+
+each node
+	gets access to the products of all the child nodes
+
+each node is passed
+	the result of all its children
+
+
+rte => ordered set of wpt
+
+wpt: lat, lon > ele, time  
+
+trk => ordered set of trkseg
+trkseg => set of trkpt
+
+trkpt: lat, lon > ele, time
