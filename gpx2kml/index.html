@@ -2,23 +2,31 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>gpx2kml</title>
+		<title>convert gpx to kml</title>
 
 		<link rel="stylesheet" type="text/css" href="site.css">
 
 		<!-- non-blocking async load -->
 		<script type="text/javascript" src="src/gpx2kml.js" async></script>
-		<script type="text/javascript" src="src/fx.js" async></script>
 		<script type="text/javascript" src="src/app.js" async></script>
 	</head>
 	<body class='body'>
+
+		<br/>	
+	
 		<div style="text-align: center">    
-		    <div style="display: inline-block;" class="bold">gpx2kml</div>
+		    <div style="display: inline-block;" class="bold">convert gpx to kml</div>
 		</div>
 
-		<div><input type="file" id="fileInput"></div>
+		<br/>
 
-		<hr/>
+		<div style="text-align: center">    
+		    <div style="display: inline-block;" class="bold">
+		    	<input type="file" id="fileInput">
+	    	</div>
+		</div>
+
+		<br/>	
 
 		<div>.gpx</div>
 		<div id="gpxOut" class="lightgray-background code-box"></div>

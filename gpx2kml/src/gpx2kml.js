@@ -32,7 +32,7 @@ function addNameVisibilityOpenNodes(doc, parentNode, name, isVisible, isOpen) {
 
 	// Document.name
 	//
-	parentNode.appendChild(newTextNode(doc, 'name', cdata(name)));
+	parentNode.appendChild(newTextNode(doc, 'name', name));
 
 	// Document.visibility
 	//                                                                                                                         ;'/////////////////*-+'
@@ -188,19 +188,19 @@ function kmlPlaceMarkNodeFromGpxTrkSegNode(doc, trkSegNode, placemarkName) {
 
 	// Placemark.name
 	//
-	placemarkNode.appendChild(newTextNode(doc, 'name', cdata(placemarkName)));
+	placemarkNode.appendChild(newTextNode(doc, 'name', placemarkName));
 
 	// Placemark.Snippet
 	//
-	placemarkNode.appendChild(newTextNode(doc, 'Snippet', cdata(snippet)));
+	placemarkNode.appendChild(newTextNode(doc, 'Snippet', snippet));
 
 	// Placemark.Description
 	//
-	placemarkNode.appendChild(newTextNode(doc, 'description', cdata(description)));
+	placemarkNode.appendChild(newTextNode(doc, 'description', description));
 
 	// Placemark.styleUrl
 	//
-	placemarkNode.appendChild(newTextNode(doc, 'styleUrl', cdata(styleUrl)));
+	placemarkNode.appendChild(newTextNode(doc, 'styleUrl', styleUrl));
 
 	// Placemark.Style
 	//
@@ -239,7 +239,7 @@ function kmlDocumentNodeFromGpxNode(doc, gpxNode) {
 
 	var kmlDocumentNode = doc.createElement('Document');
 
-	var documentName = 'gpx2kml @ gpxmaps.net'; 
+	var documentName = 'convert gpx to kml @ gpxmaps.net'; 
 
 	addNameVisibilityOpenNodes(doc, kmlDocumentNode, documentName, '1', '1');
 
@@ -264,6 +264,7 @@ function kmlFromGpx(gpXml) {
 		.createDocument(null, 'kml', null);
 
 	var kml = kmlDoc.createElement('kml');
+	kml.setAttribute('xmlns', 'http://www.opengis.net/kml/2.2');
 
 	// ----------------------------------------------------------
 
@@ -279,5 +280,8 @@ function kmlFromGpx(gpXml) {
 			kml.appendChild(kmlDocumentNode);
 		});
 
-	return new XMLSerializer().serializeToString(kml);
+	var xmlHeader = '<?xml version="1.0"?>';
+	var kmlText = new XMLSerializer().serializeToString(kml);
+
+	return xmlHeader + kmlText;
 }
