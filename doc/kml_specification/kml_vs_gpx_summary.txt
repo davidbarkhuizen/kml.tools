@@ -1,0 +1,42 @@
+.xml
+	.gpx
+		.metadata
+			.link
+			.text
+			.time
+		.trk
+			.name
+			.extensions
+				...
+			.trkseg
+				.trkpt: lat, lon
+					.ele
+					.time
+
+kml
+	.Document
+		.name
+		.visibility = 1
+		.open = 1
+		.Snippet
+		.Style, id="gv_track"
+			.LineStyle
+				.color
+				.width
+
+		.Folder, id="Tracks"
+			.name
+			.visibility = 1
+			.open = 1
+			.Placemark
+				.name
+				.Snippet
+					.description
+					.styleUrl = #gv_track
+					.Style
+						.LineStyle
+							.color
+							.width
+				.MultiGeometry
+					.LineString
+						.coordinates

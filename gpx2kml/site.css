@@ -13,3 +13,7 @@
 	max-height:200px;
 	overflow-y:auto;
 }
+
+.bold {
+	font-weight: bold
+}

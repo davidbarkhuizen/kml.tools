@@ -9,8 +9,9 @@ async function waitForDependenciesToBeLoaded(next) {
 		
 		try { 
 			fx();
-			//gpx2kml();
+			gpx2kml();
 
+			console.log('checked dependencies loaded');
 			break;
 		}
 		catch (err) {
@@ -23,14 +24,26 @@ async function waitForDependenciesToBeLoaded(next) {
 	next();
 }
 
+function saveToTextFile(text) {
+
+    location.href = "data:application/octet-stream," + encodeURIComponent(text);
+}
+
 function loadGpxFile(evt) {
 
 	function handleFileContents(gpxText) {
 		
-		console.log('text file loaded:');
-		console.log(gpxText);
-
 		var kmlText = kmlFromGpx(gpxText);
+
+		document
+			.getElementById('gpxOut')
+			.textContent = gpxText;
+		
+		document
+			.getElementById('kmlOut')
+			.textContent = kmlText;
+
+		saveToTextFile(kmlText);
 	}
 
 	loadFileFromFileInput(evt.target, encoding = 'UTF-8', handleFileContents);
