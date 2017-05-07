@@ -6,9 +6,10 @@ function sleep(ms) {
 async function waitForDependenciesToBeLoaded(next) {
 
 	while (true) {
+		
 		try { 
 			fx();
-			gpx2kml();
+			//gpx2kml();
 
 			break;
 		}
@@ -24,13 +25,12 @@ async function waitForDependenciesToBeLoaded(next) {
 
 function loadGpxFile(evt) {
 
-	function handleFileContents(text) {
+	function handleFileContents(gpxText) {
 		
 		console.log('text file loaded:');
-		console.log(text);
+		console.log(gpxText);
 
-		parser = new DOMParser();
-		xmlDoc = parser.parseFromString(text, "text/xml");
+		var kmlText = kmlFromGpx(gpxText);
 	}
 
 	loadFileFromFileInput(evt.target, encoding = 'UTF-8', handleFileContents);

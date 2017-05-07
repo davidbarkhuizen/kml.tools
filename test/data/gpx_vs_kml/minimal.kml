@@ -1,0 +1,51 @@
+<?xml version="1.0" standalone="yes"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name><![CDATA[{{DOCUMENT_NAME}}]]></name>
+    <visibility>1</visibility>
+    <open>1</open>
+    <Style id="gv_track">
+      <LineStyle>
+        <color>ff0000e6</color>
+        <width>4</width>
+      </LineStyle>
+    </Style>
+    <Folder id="Tracks">
+      <name>Tracks</name>
+      <visibility>1</visibility>
+      <open>0</open>
+      {{ begin for each trkseg}}
+      <Placemark>
+        {{ PLACEMARK }}
+      </Placemark>      
+      {{ end for each trkseg}}      
+    </Folder>
+  </Document>
+</kml>
+
+Placemark for each trkseg
+
+<Placemark>
+  <name><![CDATA[{{TRACK_NAME}}]]></name>
+  <Snippet></Snippet>
+  <description><![CDATA[{{TRACK_DESCRIPTION}}]]></description>
+  <styleUrl>#gv_track</styleUrl>
+  <Style>
+    <LineStyle>
+      <color>fffffd22</color>
+      <width>4</width>
+    </LineStyle>
+  </Style>
+  <MultiGeometry>
+    <LineString>
+      <tessellate>1</tessellate>
+      <altitudeMode>clampToGround</altitudeMode>
+      <coordinates>{{TRACK_SEGMENT_POINTS}}</coordinates>
+    </LineString>
+  </MultiGeometry>
+</Placemark>
+
+TRACK_SEGMENT_POINTS e.g
+
+8.384390576,-33.962770505,50.13 18.384387055,-33.962797914,50.61 
+lat, lon, ele

@@ -2,21 +2,40 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>gpx2kml - david barkhuizen - 2017</title>
+		<title>gpx2kml</title>
+
+		<link rel="stylesheet" type="text/css" href="site.css">
 
 		<!-- non-blocking async load -->
 		<script type="text/javascript" src="src/gpx2kml.js" async></script>
 		<script type="text/javascript" src="src/fx.js" async></script>
 		<script type="text/javascript" src="src/app.js" async></script>
 	</head>
-	<body>
+	<body class='body'>
 		<div>
-			<h2>david barkhuizen - 2017</h2>  
-			<h1>gpx2kml</h1>
+			<h3>gpx2kml</h3>  
 		</div>
 
 		<div>
 			<input type="file" id="fileInput">
+		</div>
+
+		<hr/>
+
+		<div>.gpx</div>
+		<div id="gpxOut" class="lightgray-background code-box">
+		</div>
+
+		<hr/>
+
+		<div>.kml</div>
+		<div id="kmlOut" class="lightgray-background code-box">
+		</div>
+
+		<hr/>
+
+		<div>
+			2017 &#128009; david barkhuizen  
 		</div>
 	</body>
 </html>
